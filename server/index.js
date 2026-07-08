@@ -13,7 +13,7 @@ const app=express()
 app.post("/api/stripe/webhook",express.raw({type:"application/json"}),stripeWebhook)
 const port=process.env.PORT || 5000
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:"https://genloy-0.onrender.com",
     credentials:true
 }))
 
