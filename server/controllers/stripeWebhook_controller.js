@@ -4,11 +4,11 @@ import User from "../models/user_model.js"
 export const stripeWebhook=async(req,res)=>{
     const sig=req.headers["stripe-signature"]
     try {
-        event = stripe.webhooks.constructEvent( req.body,
-            sig,
-            process.env.STRIPE_WEBHOOK_SECRET
-
-        )
+       const event = stripe.webhooks.constructEvent(
+  req.body,
+  sig,
+  process.env.STRIPE_WEBHOOK_SECRET
+);
     } catch (error) {
         console.log(error)
         return res.status(500).json({message:"webhook error"})
